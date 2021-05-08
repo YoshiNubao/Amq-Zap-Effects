@@ -37,10 +37,17 @@ function invite(){
    var invite = new Audio("https://files.catbox.moe/8bkbvx.mp3")
    invite.play();
 }
+function return_lobby(){
+    var lobby = new Audio("https://files.catbox.moe/gy7xdi.mp3")
+    lobby.play();
+}
+function unpause(){
+     var unp = new Audio("https://files.catbox.moe/5sfl98.mp3")
+     unp.play()
+}
 
-
-
-
+new Listener("quiz unpause triggered", (payload) =>{ unpause()}).bindListener()
+new Listener("return lobby vote start", (payload) =>{ return_lobby()}).bindListener()
 new Listener("Room Settings Changed", (changes) => { settings_changed()}).bindListener()
 new Listener("chat message", function (payload) { dm() }).bindListener()
 new Listener("Game Starting", function (payload) { game_start() }).bindListener()
