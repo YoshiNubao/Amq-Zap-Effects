@@ -1,0 +1,32 @@
+// ==UserScript==
+// @name         AMQ ZAP Effects
+// @namespace    http://tampermonkey.net/
+// @version      1.0.0
+// @description  Tia o pé do chão
+// @author       YoshiNubao
+// @match        https://animemusicquiz.com/*
+// @grant        none
+// @downloadURL  https://github.com/amq-script-project/AMQ-Scripts/raw/master/gameplay/amqSoundEffects.user.js
+// @updateURL    https://github.com/amq-script-project/AMQ-Scripts/raw/master/gameplay/amqSoundEffects.user.js
+// @copyright MIT license
+// ==/UserScript==
+
+// Based on https://github.com/amq-script-project/AMQ-Scripts/raw/master/gameplay/amqSoundEffects.user.js
+
+if (!window.GameChat) return;
+function settings_changed() {
+    var som = new Audio("https://files.catbox.moe/khbiht.mp3")
+    som.play()
+}
+
+
+function dm() {
+    //r snd = new Audio("data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjM1LjEwNAAAAAAAAAAAAAAA//NwwAAAAAAAAAAAAEluZm8AAAAPAAAAEgAAAo0AUVFRUVFcXFxcXFxmZmZmZnBwcHBwcHp6enp6hISEhISEj4+Pj4+ZmZmZmZmjo6Ojo66urq6urri4uLi4uMLCwsLCzMzMzMzM1tbW1tbh4eHh4eHr6+vr6/X19fX19f//////AAAAAExhdmM1OC42NgAAAAAAAAAAAAAAACQDzAAAAAAAAAKNBvqRDQAAAAAAAAAAAAAAAAD/8xDEAAMoUngBQgAA//qc7hAMDAgIaw/ggP/zEsQAA0i25AGBOAD//7MaTaFX75uIG5vLgP/zEMQAAwiW3EHKOAAwP//4vDY47/0JAicA//MQxAAC0KbsYABEoRQNC2If/wonDnCC0wD/8xDEAAMIntGAAFqBADMI+ZBrdH//UEkKgP/zEMQAAsimzAADVKCVhZLPRv/nngNiYqYA//MQxAACsKbcIAIOpkM0hKBUrX/8JxJZMQT/8xDEAAKYosgAAJqghBAUEC3/WvgnJumIIP/zEMQAAoCe3GAAChMACRkh//roAQTBTEFN//MSxAADCKLuQABEgQABkAveCeP/8G+MyyYA//MQxAAC4J7uYACKiAABwOTDSmG/61fANMD/8xDEAALAosxgAIypAA8M4Qj//wvuIzNMQf/zEMQAAtiiyeABUIwAAW+g8YBP/+9AUqmA//MQxAACkJ7AYAFOoSALgwSDP/0zgmxTEED/8xDEAAKQnqQAAY6gl1gwFDv+qGsPi1MQQP/zEMQAAtimkCACkKgKmnuCCd//alAAn0mA//MQxAACmKJ0AACSqJgYkMP/6lLlgSNJiCD/8xLEAAGwAkSAAEYCAAmv//xWZTEFNRQAAAA=");
+    var snd = new Audio("https://files.catbox.moe/xu2kof.mp3")
+    snd.volume = 0.05
+    snd.play();
+}
+
+
+new Listener("Room Settings Changed", (changes) => { settings_changed()}).bindListener()
+new Listener("chat message", function (payload) { dm() }).bindListener();
