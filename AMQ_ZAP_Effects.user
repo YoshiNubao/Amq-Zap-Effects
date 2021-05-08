@@ -2,12 +2,12 @@
 // @name         AMQ ZAP Effects
 // @namespace    http://tampermonkey.net/
 // @version      1.0.0
-// @description  Tira o pé do chão
+// @description  Tia o pé do chão
 // @author       YoshiNubao
 // @match        https://animemusicquiz.com/*
 // @grant        none
-// @downloadURL  https://github.com/amq-script-project/AMQ-Scripts/raw/master/AMQ_ZAP_Effects.user.js
-// @updateURL    https://github.com/amq-script-project/AMQ-Scripts/raw/master/AMQ_ZAP_Effects.user.js
+// @downloadURL  https://github.com/YoshiNubao/Amq-Zap-Effects/blob/main/AMQ_ZAP_Effects.user
+// @updateURL    https://github.com/YoshiNubao/Amq-Zap-Effects/blob/main/AMQ_ZAP_Effects.user
 // @copyright MIT license
 // ==/UserScript==
 
@@ -23,10 +23,25 @@ function settings_changed() {
 function dm() {
     //r snd = new Audio("data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjM1LjEwNAAAAAAAAAAAAAAA//NwwAAAAAAAAAAAAEluZm8AAAAPAAAAEgAAAo0AUVFRUVFcXFxcXFxmZmZmZnBwcHBwcHp6enp6hISEhISEj4+Pj4+ZmZmZmZmjo6Ojo66urq6urri4uLi4uMLCwsLCzMzMzMzM1tbW1tbh4eHh4eHr6+vr6/X19fX19f//////AAAAAExhdmM1OC42NgAAAAAAAAAAAAAAACQDzAAAAAAAAAKNBvqRDQAAAAAAAAAAAAAAAAD/8xDEAAMoUngBQgAA//qc7hAMDAgIaw/ggP/zEsQAA0i25AGBOAD//7MaTaFX75uIG5vLgP/zEMQAAwiW3EHKOAAwP//4vDY47/0JAicA//MQxAAC0KbsYABEoRQNC2If/wonDnCC0wD/8xDEAAMIntGAAFqBADMI+ZBrdH//UEkKgP/zEMQAAsimzAADVKCVhZLPRv/nngNiYqYA//MQxAACsKbcIAIOpkM0hKBUrX/8JxJZMQT/8xDEAAKYosgAAJqghBAUEC3/WvgnJumIIP/zEMQAAoCe3GAAChMACRkh//roAQTBTEFN//MSxAADCKLuQABEgQABkAveCeP/8G+MyyYA//MQxAAC4J7uYACKiAABwOTDSmG/61fANMD/8xDEAALAosxgAIypAA8M4Qj//wvuIzNMQf/zEMQAAtiiyeABUIwAAW+g8YBP/+9AUqmA//MQxAACkJ7AYAFOoSALgwSDP/0zgmxTEED/8xDEAAKQnqQAAY6gl1gwFDv+qGsPi1MQQP/zEMQAAtimkCACkKgKmnuCCd//alAAn0mA//MQxAACmKJ0AACSqJgYkMP/6lLlgSNJiCD/8xLEAAGwAkSAAEYCAAmv//xWZTEFNRQAAAA=");
     var snd = new Audio("https://files.catbox.moe/xu2kof.mp3")
-    snd.volume = 0.05
+    snd.volume = 0.1
     snd.play();
 }
 
+function game_start(){
+   var start = new Audio("https://files.catbox.moe/4h18g6.mp3")
+   start.volume = 1
+   start.play();
+}
+
+function invite(){
+   var invite = new Audio("https://files.catbox.moe/8bkbvx.mp3")
+   invite.play();
+}
+
+
+
 
 new Listener("Room Settings Changed", (changes) => { settings_changed()}).bindListener()
-new Listener("chat message", function (payload) { dm() }).bindListener();
+new Listener("chat message", function (payload) { dm() }).bindListener()
+new Listener("Game Starting", function (payload) { game_start() }).bindListener()
+new Listener("game invite", function(payload) { invite()}).bindListener()
