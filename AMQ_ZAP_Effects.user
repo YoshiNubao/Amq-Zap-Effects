@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         AMQ ZAP Effects
 // @namespace    http://tampermonkey.net/
-// @version      1.0.0
-// @description  Tia o pé do chão
+// @version      1.0.10
+// @description  Tira o pé do chão
 // @author       YoshiNubao
 // @match        https://animemusicquiz.com/*
 // @grant        none
@@ -42,7 +42,7 @@ function return_lobby(){
     lobby.play();
 }
 function unpause(){
-     var unp = new Audio("https://files.catbox.moe/tgj5ar.mp3")
+     var unp = new Audio("https://www.myinstants.com/media/sounds/myaudio_10.mp3")
      unp.play()
 }
 
