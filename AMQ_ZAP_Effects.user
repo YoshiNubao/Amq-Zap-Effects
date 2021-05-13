@@ -21,7 +21,6 @@ function settings_changed() {
 
 
 function dm() {
-    //r snd = new Audio("data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjM1LjEwNAAAAAAAAAAAAAAA//NwwAAAAAAAAAAAAEluZm8AAAAPAAAAEgAAAo0AUVFRUVFcXFxcXFxmZmZmZnBwcHBwcHp6enp6hISEhISEj4+Pj4+ZmZmZmZmjo6Ojo66urq6urri4uLi4uMLCwsLCzMzMzMzM1tbW1tbh4eHh4eHr6+vr6/X19fX19f//////AAAAAExhdmM1OC42NgAAAAAAAAAAAAAAACQDzAAAAAAAAAKNBvqRDQAAAAAAAAAAAAAAAAD/8xDEAAMoUngBQgAA//qc7hAMDAgIaw/ggP/zEsQAA0i25AGBOAD//7MaTaFX75uIG5vLgP/zEMQAAwiW3EHKOAAwP//4vDY47/0JAicA//MQxAAC0KbsYABEoRQNC2If/wonDnCC0wD/8xDEAAMIntGAAFqBADMI+ZBrdH//UEkKgP/zEMQAAsimzAADVKCVhZLPRv/nngNiYqYA//MQxAACsKbcIAIOpkM0hKBUrX/8JxJZMQT/8xDEAAKYosgAAJqghBAUEC3/WvgnJumIIP/zEMQAAoCe3GAAChMACRkh//roAQTBTEFN//MSxAADCKLuQABEgQABkAveCeP/8G+MyyYA//MQxAAC4J7uYACKiAABwOTDSmG/61fANMD/8xDEAALAosxgAIypAA8M4Qj//wvuIzNMQf/zEMQAAtiiyeABUIwAAW+g8YBP/+9AUqmA//MQxAACkJ7AYAFOoSALgwSDP/0zgmxTEED/8xDEAAKQnqQAAY6gl1gwFDv+qGsPi1MQQP/zEMQAAtimkCACkKgKmnuCCd//alAAn0mA//MQxAACmKJ0AACSqJgYkMP/6lLlgSNJiCD/8xLEAAGwAkSAAEYCAAmv//xWZTEFNRQAAAA=");
     var snd = new Audio("https://files.catbox.moe/xu2kof.mp3")
     snd.volume = 0.1
     snd.play();
@@ -38,12 +37,18 @@ function invite(){
    invite.play();
 }
 function return_lobby(){
-    var lobby = new Audio("https://files.catbox.moe/gy7xdi.mp3")
+    var lobby = new Audio("https://files.catbox.moe/oi1rij.mp3")
+    lobby.volume= 2
     lobby.play();
 }
 function unpause(){
-     var unp = new Audio("https://files.catbox.moe/5sfl98.mp3")
+     var unp = new Audio("https://files.catbox.moe/tgj5ar.mp3")
      unp.play()
+}
+
+function mention(){
+    var men = new Audio("https://files.catbox.moe/bpvzwm.mp3");
+    men.play();
 }
 
 new Listener("quiz unpause triggered", (payload) =>{ unpause()}).bindListener()
@@ -52,3 +57,13 @@ new Listener("Room Settings Changed", (changes) => { settings_changed()}).bindLi
 new Listener("chat message", function (payload) { dm() }).bindListener()
 new Listener("Game Starting", function (payload) { game_start() }).bindListener()
 new Listener("game invite", function(payload) { invite()}).bindListener()
+/*new Listener("Game Chat Message", function (payload){
+        if (gameChat.atSelfRegex.test(payload.message) || payload.atEveryone) {
+            mention();
+        }
+    }
+}).bindListener()*/
+
+
+
+
