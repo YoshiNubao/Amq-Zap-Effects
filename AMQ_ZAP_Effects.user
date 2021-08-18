@@ -19,13 +19,13 @@ function settings_changed() {
     som.play()
 }
 
-
+/*
 function dm() {
     var snd = new Audio("https://files.catbox.moe/xu2kof.mp3")
     snd.volume = 0.1
     snd.play();
 }
-
+*/
 function game_start(){
    var start = new Audio("https://files.catbox.moe/4h18g6.mp3")
    start.volume = 1
@@ -36,16 +36,18 @@ function invite(){
    var invite = new Audio("https://files.catbox.moe/8bkbvx.mp3")
    invite.play();
 }
+/*
 function return_lobby(){
     var lobby = new Audio("https://files.catbox.moe/oi1rij.mp3")
     lobby.volume= 2
     lobby.play();
 }
+
 function unpause(){
      var unp = new Audio("https://www.myinstants.com/media/sounds/myaudio_10.mp3")
      unp.play()
 }
-
+*/
 function mention(){
     var men = new Audio("https://files.catbox.moe/bpvzwm.mp3");
     men.play();
